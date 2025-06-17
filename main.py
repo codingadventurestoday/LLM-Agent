@@ -31,5 +31,11 @@ def generate_content(client, messages):
     print("Response:")
     print(response.text)
 
+    if "--verbose" in sys.argv:
+        print(f"User prompt: {sys.argv[1:2]}")
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+
+
 if __name__ == "__main__":
     main()
